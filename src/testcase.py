@@ -1,8 +1,8 @@
-'''
+"""
 Created on Dec 20, 2012
 
 @author: peng
-'''
+"""
 import unittest
 import timeutils
 
@@ -15,5 +15,4 @@ class Test(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.test_timeutils']
     unittest.main()

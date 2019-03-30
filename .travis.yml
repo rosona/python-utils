@@ -1,0 +1,33 @@
+language: python
+sudo: required
+env:
+  global:
+    - REAL_BRANCH=$(git ls-remote origin | sed -n "\|$TRAVIS_COMMIT\s\+refs/heads/|{s///p}")
+before_install:
+  - nvm install node
+install:
+script:
+  - echo "do scripts"
+  - echo $TRAVIS_BRANCH
+  - echo $TRAVIS_OS_NAME
+  - echo $TRAVIS_TAG
+  - echo $TRAVIS_PULL_REQUEST_BRANCH
+  - echo $REAL_BRANCH
+  - echo $IS_RELEASE
+  - echo "end scripts"
+deploy:
+  - provider: script
+    script: 
+      echo "dev...."; echo $TRAVIS_BRANCH;echo $TRAVIS_TAG;echo $TRAVIS_PULL_REQUEST_BRANCH;echo $REAL_BRANCH;echo $IS_RELEASE
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      condition: "$REAL_BRANCH = dev" AND "$TRAVIS_OS_NAME = linux"
+  - provider: script
+    script:
+      echo "master..."
+    on:
+      tags: true
+      all_branches: true
+      condition: "$REAL_BRANCH =~ ^master|release-*$" AND "$TRAVIS_OS_NAME = linux"

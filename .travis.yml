@@ -31,3 +31,10 @@ deploy:
       tags: true
       all_branches: true
       condition: "$REAL_BRANCH =~ ^master|release-.*$ && $TRAVIS_OS_NAME = linux"
+  - provider: script
+    script:
+      echo "from cron "
+    on:
+      tags: false
+      all_branches: true
+      condition: "$REAL_BRANCH = dev && $TRAVIS_OS_NAME = linux && $TRAVIS_EVENT_TYPE = cron"

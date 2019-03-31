@@ -8,6 +8,7 @@ before_install:
 install:
 script:
   - echo "do scripts"
+  - echo $TRAVIS_BUILD_NUMBER
   - echo $TRAVIS_BRANCH
   - echo $TRAVIS_OS_NAME
   - echo $TRAVIS_TAG

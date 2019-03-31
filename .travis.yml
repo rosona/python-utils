@@ -29,4 +29,4 @@ deploy:
     on:
       tags: true
       all_branches: true
-      condition: "$REAL_BRANCH =~ ^master|release-*$ && $TRAVIS_OS_NAME == linux"
+      condition: "$REAL_BRANCH =~ ^master|release-.*$ && $TRAVIS_OS_NAME == linux"

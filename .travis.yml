@@ -19,7 +19,6 @@ deploy:
   - provider: script
     script: 
       echo "dev...."; echo $TRAVIS_BRANCH;echo $TRAVIS_TAG;echo $TRAVIS_PULL_REQUEST_BRANCH;echo $REAL_BRANCH;echo $IS_RELEASE
-    skip_cleanup: true
     on:
       tags: true
       all_branches: true

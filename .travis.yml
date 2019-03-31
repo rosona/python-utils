@@ -22,11 +22,11 @@ deploy:
     on:
       tags: true
       all_branches: true
-      condition: "$REAL_BRANCH = dev && $TRAVIS_OS_NAME == linux"
+      condition: "$REAL_BRANCH = dev && $TRAVIS_OS_NAME = linux"
   - provider: script
     script:
       echo "master..."
     on:
       tags: true
       all_branches: true
-      condition: "$REAL_BRANCH =~ ^master|release-.*$ && $TRAVIS_OS_NAME == linux"
+      condition: "$REAL_BRANCH =~ ^master|release-.*$ && $TRAVIS_OS_NAME = linux"
